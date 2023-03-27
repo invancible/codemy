@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codemy | Learn programming</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link href="{% static 'styles/flowbite.min.css' %}" rel="stylesheet" />
+    <!-- / Styles -->
+
+</head>
+
+<body class="bg-background font-body">
+
+    {% include 'sidebar.html' %}
+    {% block content %}{% endblock content %}
+
+</body>
+
+<!-- Scripts -->
+<script src="{% static 'js/flowbite.min.js' %}"></script>
+<!-- / Scripts -->
+
+</html>

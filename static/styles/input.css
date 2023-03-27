@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Play';
+    src: url('../fonts/Play-Regular.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'PlayBold';
+    src: url('../fonts/Play-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'ChangaMedium';
+    src: url('../fonts/Changa-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'ChangaSemiBold';
+    src: url('../fonts/Changa-SemiBold.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'PressStart';
+    src: url('../fonts/PressStart2P-Regular.ttf');
+}
