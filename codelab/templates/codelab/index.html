@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Main content -->
+<div class="p-4 sm:ml-56">
+
+    <section class="flex w-full h-screen">
+
+        <!-- Compiler -->
+        <div class="w-3/5 flex flex-col">
+            <nav class=" bg-primary border-gray-200 px-2 sm:px-4 rounded">
+                <div class="container flex flex-wrap items-center justify-between mx-auto">
+                    <button id="run-btn" hx-post="{% url 'codelab-compiler' %}" hx-vals='{"language": "", "code": ""}' hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' hx-target="#output" type="button" class="flex items-center text-white font-title1 bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-8 py-2.5 text-center mr-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="ml-1">Run</span>
+                    </button>
+
+                    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                        <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-transparent md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+                        <li>
+                            <select id="languages" onchange="changeLanguage()" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm font-subtitle rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option>C</option>
+                            <option>C++</option>
+                            <option>Python</option>
+                            </select>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Editor -->
+            <div class="h-full editor mt-1" id="editor"></div>
+            <!-- / Editor -->
+        </div>
+        <!-- / Compiler -->
+
+        <!-- Output -->
+        <section class="w-2/5 flex flex-col px-1">
+            <nav class=" bg-primary border-gray-200 px-2 sm:px-4 rounded">
+                <div class="container flex flex-wrap items-center justify-between mx-auto">
+                    <h2 class="font-subtitle text-white text-xl">Output</h2>
+
+                    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                        <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-transparent md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+                            <button type="button" class="text-gray-900 bg-gray-200 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-subtitle rounded-lg text-sm px-5 py-2 mb-0.5">
+                                Clear Console
+                            </button>
+                        
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="h-full bg-primary mt-1">
+                <div class="px-4 py-6">
+                    <pre class="text-gray-200 font-cli whitespace-pre-line output" id="output">
+                        error: return-statement with no value, in function returning 'int' [-fpermissive]  
+                        7 |     return;
+                    </pre>
+                </div>
+            </div>
+        </section>
+        <!-- / Output -->
+
+    </section>
+
+</div>
+<!-- / Main content -->
+{% endblock content %}
+
+{% block js_file %}
+<script defer src="{% static 'js/lib/ace.js' %}"></script>
+<script defer src="{% static 'js/lib/theme-nord_dark.js' %}"></script>
+<script defer src="{% static 'codelab/compiler.js' %}"></script>
+{% endblock js_file %}

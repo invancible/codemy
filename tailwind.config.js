@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./templates/*.html",
     "./core/templates/core/*.html",
+    "./codelab/templates/codelab/*.html",
   ],
   theme: {
     fontFamily: {
@@ -11,6 +12,7 @@ module.exports = {
       'title1': ['PlayBold'],
       'title2': ['ChangaSemiBold'],
       'subtitle': ['ChangaMedium'],
+      'cli': ['Inconsolata'],
     },
     extend: {
       colors: {
