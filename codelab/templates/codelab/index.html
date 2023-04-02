@@ -22,9 +22,9 @@
                         <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-transparent md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                         <li>
                             <select id="languages" onchange="changeLanguage()" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm font-subtitle rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="py">Python</option>
                             <option>C</option>
                             <option>C++</option>
-                            <option>Python</option>
                             </select>
                         </li>
                         
@@ -46,7 +46,7 @@
 
                     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                         <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-transparent md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
-                            <button type="button" class="text-gray-900 bg-gray-200 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-subtitle rounded-lg text-sm px-5 py-2 mb-0.5">
+                            <button onclick="clearConsole()" type="button" class="text-gray-900 bg-gray-200 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-subtitle rounded-lg text-sm px-5 py-2 mb-0.5">
                                 Clear Console
                             </button>
                         
@@ -57,8 +57,7 @@
             <div class="h-full bg-primary mt-1">
                 <div class="px-4 py-6">
                     <pre class="text-gray-200 font-cli whitespace-pre-line output" id="output">
-                        error: return-statement with no value, in function returning 'int' [-fpermissive]  
-                        7 |     return;
+                        output will show here
                     </pre>
                 </div>
             </div>
@@ -74,5 +73,5 @@
 {% block js_file %}
 <script defer src="{% static 'js/lib/ace.js' %}"></script>
 <script defer src="{% static 'js/lib/theme-nord_dark.js' %}"></script>
-<script defer src="{% static 'codelab/compiler.js' %}"></script>
+<script defer src="{% static 'codelab/js/compiler.js' %}"></script>
 {% endblock js_file %}
